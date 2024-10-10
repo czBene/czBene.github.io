@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="位运算知识点介绍：位运算是算法竞赛中的一个常见考点，它涉及到对二进制数位进行操作的一系列技巧和方法。以下是一些在算法竞赛中可能会考察到位运算的方面：  基本位运算符的理解与应用：    - 按位与（&amp;）：对两个数的每一位进行逻辑与操作。   - 按位或（|）：对两个数的每一位进行逻辑或操作。   - 按位异或（^）：对两个数的每一位进行异或操作，相同为0，不同为1。   - 按位取反（~）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/07/13/%E4%BD%8D%E8%BF%90%E7%AE%97%E9%80%92%E5%BD%92%E5%92%8C%E9%80%92%E6%8E%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="位运算知识点介绍：位运算是算法竞赛中的一个常见考点，它涉及到对二进制数位进行操作的一系列技巧和方法。以下是一些在算法竞赛中可能会考察到位运算的方面：  基本位运算符的理解与应用：    - 按位与（&amp;）：对两个数的每一位进行逻辑与操作。   - 按位或（|）：对两个数的每一位进行逻辑或操作。   - 按位异或（^）：对两个数的每一位进行异或操作，相同为0，不同为1。   - 按位取反（~）">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713152830379.png">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713152904863.png">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713152936439.png">
+<meta property="og:image" content="https://cdn.acwing.com/media/article/image/2024/05/16/69408_5ff1dbcf13-%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_17158360726140.png">
+<meta property="og:image" content="https://cdn.acwing.com/media/article/image/2024/05/16/69408_64372d9113-%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_17158361065646.png">
+<meta property="og:image" content="https://cdn.acwing.com/media/article/image/2024/05/16/69408_ccb52d4013-%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_17158362595783.png">
+<meta property="article:published_time" content="2024-07-13T07:37:46.000Z">
+<meta property="article:modified_time" content="2024-07-13T07:37:46.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713152830379.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-位运算递归和递推" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/13/%E4%BD%8D%E8%BF%90%E7%AE%97%E9%80%92%E5%BD%92%E5%92%8C%E9%80%92%E6%8E%A8/" class="article-date">
+  <time class="dt-published" datetime="2024-07-13T07:37:46.000Z" itemprop="datePublished">2024-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="位运算知识点介绍："><a href="#位运算知识点介绍：" class="headerlink" title="位运算知识点介绍："></a>位运算知识点介绍：</h3><p>位运算是算法竞赛中的一个常见考点，它涉及到对二进制数位进行操作的一系列技巧和方法。以下是一些在算法竞赛中可能会考察到位运算的方面：</p>
+<ol>
+<li><strong>基本位运算符的理解与应用</strong>：</li>
+</ol>
+<p>  - 按位与（&amp;）：对两个数的每一位进行逻辑与操作。</p>
+<p>  - 按位或（|）：对两个数的每一位进行逻辑或操作。</p>
+<p>  - 按位异或（^）：对两个数的每一位进行异或操作，相同为0，不同为1。</p>
+<p>  - 按位取反（~）：对一个数的每一位进行取反操作，0变1，1变0。</p>
+<p>  - 左移（&lt;&lt;）：将一个数的所有位向左移动指定的位数。</p>
+<p>  - 右移（&gt;&gt;）：将一个数的所有位向右移动指定的位数。</p>
+<ol start="2">
+<li><strong>位运算的性质和规则</strong>：</li>
+</ol>
+<p>  - 位运算的优先级。</p>
+<p>  - 位运算的结合律和交换律。</p>
+<p>  - 位运算在不同数据类型（如int、long long）上的行为。</p>
+<ol start="3">
+<li><strong>位运算的实际应用</strong>：</li>
+</ol>
+<p>  - 判断一个数的奇偶性。</p>
+<p>  - 交换两个变量的值而不使用额外的存储空间。</p>
+<p>  - 计算一个数的二进制表示中1的个数。</p>
+<p>  - 判断一个数是否为2的幂次方。</p>
+<p>  - 快速幂算法的实现，用于计算大数的幂次方。</p>
+<ol start="4">
+<li><strong>位运算的优化技巧</strong>：</li>
+</ol>
+<p>  - 使用位运算进行高效的乘除法运算。</p>
+<p>  - 利用位运算优化算法的时间复杂度和空间复杂度。</p>
+<ol start="5">
+<li><strong>位运算与其他算法的结合</strong>：</li>
+</ol>
+<p>  - 位运算在动态规划、图论算法、数论算法中的应用。</p>
+<p>  - 位运算在解决特定算法问题中的巧妙使用，如处理特定的数据结构或优化搜索过程。</p>
+<p>题目a^b</p>
+<p>A-  <a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/996/A">a^b_0x01 基本算法-位运算 (nowcoder.com)</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求a的b次方对p取模</span></span><br><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">pow</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a,<span class="type">int</span> b,<span class="type">long</span> <span class="type">long</span> p)</span></span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> ans=<span class="number">1</span>;<span class="comment">//要返回的答案，初始化为1是1乘任意数为任意数，不能为0</span></span><br><span class="line">    <span class="keyword">while</span>(b)&#123;<span class="comment">//对b的二进制指数进行枚举</span></span><br><span class="line">        <span class="keyword">if</span>(b%<span class="number">2</span>==<span class="number">1</span>)&#123; <span class="comment">//b的二进制尾巴是1</span></span><br><span class="line">            ans=(ans*a)%p;</span><br><span class="line">            <span class="comment">//这边主要对指数b进行一个拆分；</span></span><br><span class="line">            <span class="comment">//比如2^10如果直接算要10次</span></span><br><span class="line">            <span class="comment">//我们可以拆分为(2^2)*(2^8)</span></span><br><span class="line">        &#125;</span><br><span class="line">        b=b/<span class="number">2</span>;<span class="comment">//进一步拆分</span></span><br><span class="line">        a=a*a%p;<span class="comment">//我们让a的幂次升高一倍</span></span><br><span class="line">        <span class="comment">//比如a为(2^3) 升高为 (2^6)</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> a,b,p;</span><br><span class="line">    cin&gt;&gt;a&gt;&gt;b&gt;&gt;p;</span><br><span class="line">    cout&lt;&lt;<span class="built_in">pow</span>(a%p,b,p)%p;</span><br><span class="line">    </span><br><span class="line">&#125;    </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>题目64位整数乘法</p>
+<p>龟速乘模板</p>
+<p><a target="_blank" rel="noopener" href="https://ac.nowcoder.com/acm/contest/996/C">C-64位整数乘法_0x01 基本算法-位运算 (nowcoder.com)</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">该算法目的就是求大数 a*b%p</span></span><br><span class="line"><span class="comment">因为c++不是python 两个2^64相乘会爆</span></span><br><span class="line"><span class="comment">思想就是 将 b二进制化 从乘法变成加法</span></span><br><span class="line"><span class="comment">比如 求8*6对10取模</span></span><br><span class="line"><span class="comment">可以为 8*2%10+8*4*10</span></span><br><span class="line"><span class="comment">由于我们是循环的进行的 假设8*2%10在上一步中已经求出我们设为a</span></span><br><span class="line"><span class="comment">那8*4%10就可以变为 a*2%10</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 模乘运算函数，计算 (a * b) % p 的值</span></span><br><span class="line"><span class="function"><span class="type">long</span> <span class="type">long</span> <span class="title">modMultiply</span><span class="params">(<span class="type">long</span> <span class="type">long</span> a, <span class="type">long</span> <span class="type">long</span> b, <span class="type">long</span> <span class="type">long</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 将 a 和 b 都取模 p，以防止溢出</span></span><br><span class="line">    a %= p;</span><br><span class="line">    b %= p;</span><br><span class="line">    <span class="comment">// 初始化结果为 0</span></span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 将 a 乘以 b，并将结果对 p 取模，累加到结果中</span></span><br><span class="line">    <span class="keyword">while</span> (b &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>) &#123;</span><br><span class="line">            result = (result + a) % p;</span><br><span class="line">        &#125;</span><br><span class="line">        a = (a * <span class="number">2</span>) % p;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> a, b, p;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; p;</span><br><span class="line">    <span class="type">long</span> <span class="type">long</span> result = <span class="built_in">modMultiply</span>(a, b, p);</span><br><span class="line">    cout &lt;&lt;result &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这种方法的基本思路是将乘法操作分解为一系列的加法和移位操作，同时在每一步中都进行模p运算，以确保数值始终保持在合法范围内。<br>具体来说，算法的步骤如下：</p>
+<ol>
+<li>将指数b表示为二进制形式，这样可以将其分解为多个2的幂次的和。</li>
+<li>初始化结果变量ans为0，用于累加最终的乘积结果。</li>
+<li>通过循环遍历指数b的每一位，对于每一位的判断（即b的最低位是否为1），来决定是否将当前的底数a累加到结果ans中，并在每次累加后对ans进行模p运算。</li>
+<li>在每次循环中，将底数a左移一位（相当于乘以2），并且同样进行模p运算，以防止a的值过大导致溢出。</li>
+<li>同时，将指数b右移一位，继续循环处理下一位，直到b的所有位都被处理完毕。</li>
+<li>最终，循环结束后的结果ans即为a乘b对p取模的结果。<br>这种方法的关键在于通过位运算来高效地处理大数乘法，避免了直接计算可能带来的性能问题和溢出风险。通过这种方式，可以快速且准确地计算出64位整数乘法对p取模的结果，这在算法竞赛中是一个非常有用的技巧。</li>
+</ol>
+<h4 id="异或"><a href="#异或" class="headerlink" title="异或"></a>异或</h4><p>定理1：两数相同异或为0</p>
+<p>定理2：如果一个组整数的异或和为0，然后任意某个位置分割开的两个异或和是一样的</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">举例</span><br><span class="line">假设6个整数位 1 2 3 4 5 1</span><br><span class="line">那任意分成两段他们的异或和都一样  </span><br></pre></td></tr></table></figure>
+
+<p>位运算实例练习</p>
+<h2 id="题目："><a href="#题目：" class="headerlink" title="题目："></a>题目：</h2><p>给定两个正整数j和k，求有多少个序列满足下列条件：<br>1.序列中的所有元素都在 $ [0,2^{k}-1] $​ 之间。<br>2.它的所有元素的与运算之和为0。<br>3.它的元素或之和是尽可能大的。<br>答案对10^9^+7取模。</p>
+<p>输入格式：<br>第一行一个整数t(1≤t≤10)表示数据组数。<br>每组测试数据包含两个整数和k,意义如题面所述。<br>输出格式：<br>对于每组数据，输出符合条件的序列对10^9^十7取模的结果。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*考虑和最大，则每个数的二进制都为 k 位。</span></span><br><span class="line"><span class="comment">考虑所有数 and等于 0，则每一个数在二进制中有且只有一个 0，且这些 0 的所在位数不相同。</span></span><br><span class="line"><span class="comment">因为有 n 个数，有 k 位，所以有 n^k 种方法。</span></span><br><span class="line"><span class="comment">快速幂即可。*/</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> ll mod=<span class="number">1e9</span><span class="number">+7</span>;</span><br><span class="line">ll t,n,k;</span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a,ll b)</span></span>&#123;<span class="comment">//快速幂</span></span><br><span class="line">ll ans=<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span>(b)&#123;</span><br><span class="line">		<span class="keyword">if</span>(b&amp;<span class="number">1</span>)ans=(ans*a)%mod;</span><br><span class="line">		a=(a*a)%mod;</span><br><span class="line">		b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">	&#125;<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	cin&gt;&gt;t;</span><br><span class="line">	<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">		cin&gt;&gt;n&gt;&gt;k;</span><br><span class="line">		cout&lt;&lt;<span class="built_in">qpow</span>(n,k)&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们逐步分析给定的问题条件。假设有一个序列α。</p>
+<p>首先，根据第一个条件，序列中的每个元素αi都在0到2的k次方减1的范围内。这意味着每个元素αi可以被表示为一个k位的二进制数。</p>
+<p>接着，考虑第二个条件，由于序列中所有元素的按位与运算结果为0，我们可以推断出，在这些二进制表示中，每一位上都必须至少有一个元素是0。</p>
+<p>再来看第三个条件，为了使得元素之和最大，同时满足第二个条件，我们需要将二进制位上的0尽可能地转变为1。</p>
+<p>综合这三个条件，我们可以发现，在二进制表示中，每一位上可能有不同的情况出现（一个0和若干个1的组合），总共有n种情况。因此，最终的答案就是n。在编写代码时，记得声明long long类型的变量来存储结果</p>
+<h4 id="选数异或"><a href="#选数异或" class="headerlink" title="选数异或"></a>选数异或</h4><h4 id=""><a href="#" class="headerlink" title=""></a><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713152830379.png" alt="image-20240713152830379"></h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713152904863.png" alt="image-20240713152904863"></p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713152936439.png" alt="image-20240713152936439"></p>
+<h5 id="异或运算性质"><a href="#异或运算性质" class="headerlink" title="异或运算性质"></a>异或运算性质</h5><p>异或运算有一个重要性质：如果 ( a \oplus b &#x3D; x )，那么 ( b &#x3D; x \oplus a )。这意味着一旦确定了 ( a )，( b ) 的值也就确定了。</p>
+<h5 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h5><p>题目要求对一个区间 ( [L, R] ) 进行查询，可以使用动态规划（DP）的思想来解决。定义一个数组 ( f )，其中 ( f_i ) 表示在区间 ( [1, i] ) 内所有满足条件的数对的下界的下标的最大值。通过枚举区间内的每个数 ( a )，并计算 ( a \oplus x )，如果 ( a \oplus x ) 在之前出现过，则更新 ( f ) 数组。</p>
+<h5 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h5><ol>
+<li>使用一个哈希表来记录每个数 ( a[i] \oplus x ) 对应的下标。</li>
+<li>遍历数组 ( a )，对于每个元素 ( a[i] )，更新 ( f[i] ) 为 ( f[i-1] ) 和 ( Hash[a[i] \oplus x] ) 中的较大值。</li>
+<li>对于每个查询区间 ( [l, r] )，判断 ( f[r] ) 是否大于等于 ( l )，如果是，则输出 <code>yes</code>，否则输出 <code>no</code>。</li>
+</ol>
+<h5 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">100005</span>],f[<span class="number">100005</span>];</span><br><span class="line">map&lt;<span class="type">int</span>,<span class="type">int</span>&gt; Hash;<span class="comment">//记录每一个a[i]^x的最近的位置</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,m,x;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;x;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">    	cin&gt;&gt;a[i];</span><br><span class="line">    	f[i]=<span class="built_in">max</span>(f[i<span class="number">-1</span>],Hash[a[i]^x]);</span><br><span class="line">    	Hash[a[i]]=i;<span class="comment">//哈希一下~</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        <span class="type">int</span> l,r;</span><br><span class="line">        cin&gt;&gt;l&gt;&gt;r;</span><br><span class="line">        <span class="keyword">if</span>(f[r]&gt;=l)cout&lt;&lt;<span class="string">&quot;yes\n&quot;</span>;<span class="comment">//左端点在最大下界的左边</span></span><br><span class="line">        <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="递推和递归"><a href="#递推和递归" class="headerlink" title="递推和递归"></a>递推和递归</h2><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><p><strong>递推</strong>：以问题边界为起点，向原问题正向推导<br><strong>递归</strong>：（有时推导路线难以确定），则将原问题为起点，尝试把状态空间压缩到已知的问题边界，再通过该路线反方向回溯到原问题的方式即递归。</p>
+<h4 id="案例1-1621–分形宇宙"><a href="#案例1-1621–分形宇宙" class="headerlink" title="案例1: 1621–分形宇宙"></a>案例1: 1621–分形宇宙</h4><p><img src="https://cdn.acwing.com/media/article/image/2024/05/16/69408_5ff1dbcf13-%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_17158360726140.png" alt="企业微信截图_17158360726140.png"><br><img src="https://cdn.acwing.com/media/article/image/2024/05/16/69408_64372d9113-%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_17158361065646.png" alt="企业微信截图_17158361065646.png"> </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">  <span class="meta">#<span class="keyword">include</span><span class="string">&lt;math.h&gt;</span></span></span><br><span class="line">  <span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">  <span class="type">char</span> m[<span class="number">2000</span>][<span class="number">2000</span>];</span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">d</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> x, <span class="type">int</span> y)</span></span>;</span><br><span class="line"> <span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">void</span>)</span></span>&#123;</span><br><span class="line">      <span class="type">int</span> n;</span><br><span class="line">      <span class="keyword">while</span>(cin&gt;&gt;n)&#123;</span><br><span class="line">          <span class="type">int</span> size = <span class="built_in">pow</span>(<span class="number">3.0</span>, n<span class="number">-1</span>);<span class="comment">//先算出常数然后对图初始化</span></span><br><span class="line">         <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt;= size; i++)&#123;</span><br><span class="line">             <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">0</span>; j &lt;= size; j++)&#123;</span><br><span class="line">                 m[i][j] = <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line"><span class="comment">//然后开始dfs画图</span></span><br><span class="line">         <span class="built_in">d</span>(n, <span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">       <span class="comment">//画出图</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= size; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= size; j++)&#123;</span><br><span class="line">                 cout&lt;&lt;m[i][j];</span><br><span class="line">             &#125;</span><br><span class="line">             cout&lt;&lt;endl;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">d</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> x, <span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">     <span class="keyword">if</span>(n == <span class="number">1</span>)&#123;<span class="comment">//如果已经到了第一阶 那就直接画一个x</span></span><br><span class="line">         m[x][y] = <span class="string">&#x27;X&#x27;</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">else</span>&#123;</span><br><span class="line">         <span class="comment">//要画第n阶图 我们先画第n-1阶</span></span><br><span class="line">         <span class="type">int</span> size = <span class="built_in">pow</span>(<span class="number">3.0</span>, n<span class="number">-2</span>);<span class="comment">//我们先算出我们求坐标的常数</span></span><br><span class="line">         <span class="built_in">d</span>(n<span class="number">-1</span>, x, y);</span><br><span class="line">         <span class="built_in">d</span>(n<span class="number">-1</span>, x, y<span class="number">+2</span>*size);<span class="comment">//这个是五方的右上角的点</span></span><br><span class="line">         <span class="built_in">d</span>(n<span class="number">-1</span>, x+size, y+size);<span class="comment">//这个是五方的中间点</span></span><br><span class="line">         <span class="built_in">d</span>(n<span class="number">-1</span>, x<span class="number">+2</span>*size, y);<span class="comment">//五方的左下角点</span></span><br><span class="line">         <span class="built_in">d</span>(n<span class="number">-1</span>, x<span class="number">+2</span>*size, y<span class="number">+2</span>*size);<span class="comment">//五方的右下角点</span></span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="案例2-9051–方格填数"><a href="#案例2-9051–方格填数" class="headerlink" title="案例2: 9051–方格填数"></a>案例2: 9051–方格填数</h4><p><img src="https://cdn.acwing.com/media/article/image/2024/05/16/69408_ccb52d4013-%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_17158362595783.png" alt="企业微信截图_17158362595783.png"> </p>
+<p>(本题是一道蓝桥杯填空题没有输入，通过程序跑出答案，赛场上在结束前跑完即可此刻我们要求代码是能在一秒中跑完。)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> in[<span class="number">3</span>][<span class="number">4</span>]=&#123;<span class="number">-2</span>&#125;;</span><br><span class="line"><span class="type">int</span> ans;</span><br><span class="line"><span class="type">bool</span> st[<span class="number">11</span>];</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">这道题我们搜索的顺序是按照图的位置来的 从(1,1)这个点向右搜索，然后到头了就跳到下一行的开头 由于我们是刚刚描述的这样顺序搜索所以 右边 下边 右下 左下这四个方向必然是0不用判</span></span><br><span class="line"><span class="comment">这些位置里的填数数字是否相邻</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> dx[<span class="number">4</span>]=&#123;<span class="number">0</span>,<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>&#125;,dy[<span class="number">4</span>]=&#123;<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>&#125;;<span class="comment">//定义移动变量</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">check</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;<span class="comment">//检查这个点是否合法</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">        <span class="type">int</span> xx=x+dx[i],yy=y+dy[i];</span><br><span class="line">        <span class="keyword">if</span>(xx&gt;=<span class="number">0</span>&amp;&amp;xx&lt;<span class="number">3</span>&amp;&amp;yy&gt;=<span class="number">0</span>&amp;&amp;yy&lt;<span class="number">4</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="number">1</span>==<span class="built_in">abs</span>(in[xx][yy]-in[x][y]))&#123;<span class="comment">//如果有这三个方向相邻的数字相邻就不行</span></span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;<span class="comment">//xy是搜索到的点的坐标</span></span><br><span class="line">    <span class="keyword">if</span>(x==<span class="number">2</span>&amp;&amp;y==<span class="number">3</span>)&#123;<span class="comment">//如果搜到图的终点了就算一次答案 否则不算</span></span><br><span class="line">        ans++;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> num=<span class="number">0</span>;num&lt;=<span class="number">9</span>;num++)&#123;<span class="comment">//枚举数字  从1枚举到9</span></span><br><span class="line">        <span class="keyword">if</span>(!st[num])&#123;</span><br><span class="line">             st[num]=<span class="number">1</span>;</span><br><span class="line">            in[x][y]=num;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">check</span>(x,y))&#123;<span class="comment">//如果这个点合法我们就往下搜</span></span><br><span class="line">                <span class="keyword">if</span>(y<span class="number">+1</span>&lt;<span class="number">4</span>)<span class="built_in">dfs</span>(x,y<span class="number">+1</span>);<span class="comment">//如果不是右边边界就往右搜</span></span><br><span class="line">                <span class="keyword">else</span> <span class="built_in">dfs</span>(x<span class="number">+1</span>,<span class="number">0</span>);<span class="comment">//否则换到下一行的开头;</span></span><br><span class="line">            &#125;</span><br><span class="line">            st[num]=<span class="number">0</span>;<span class="comment">//回溯恢复现场 让这个字没被访问过 </span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    in[<span class="number">2</span>][<span class="number">3</span>]=<span class="number">-2</span>;</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">    std::cout&lt;&lt;ans; </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/13/%E4%BD%8D%E8%BF%90%E7%AE%97%E9%80%92%E5%BD%92%E5%92%8C%E9%80%92%E6%8E%A8/" data-id="cm23ox8te0001x22zdew35r9s" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/10/11/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/11/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2024/07/13/%E4%BD%8D%E8%BF%90%E7%AE%97%E9%80%92%E5%BD%92%E5%92%8C%E9%80%92%E6%8E%A8/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
