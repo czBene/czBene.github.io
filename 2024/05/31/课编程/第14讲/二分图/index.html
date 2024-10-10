@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="二分图（Bipartite Graph）二分图是一种特殊的图，它的特性是可以将图中的节点划分为两个互不相交的集合，且图中的每条边连接的两个节点分别属于这两个不同的集合。换句话说，二分图中不存在连接同一集合内两个节点的边。这种图的结构可以用一个二维的矩阵来表示，其中矩阵的行和列分别代表两个集合中的节点，矩阵中的元素表示节点间是否存在连接。 下图是典型的二分图。   如果判断一个图是不是二分图？ 开始">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/31/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC14%E8%AE%B2/%E4%BA%8C%E5%88%86%E5%9B%BE/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="二分图（Bipartite Graph）二分图是一种特殊的图，它的特性是可以将图中的节点划分为两个互不相交的集合，且图中的每条边连接的两个节点分别属于这两个不同的集合。换句话说，二分图中不存在连接同一集合内两个节点的边。这种图的结构可以用一个二维的矩阵来表示，其中矩阵的行和列分别代表两个集合中的节点，矩阵中的元素表示节点间是否存在连接。 下图是典型的二分图。   如果判断一个图是不是二分图？ 开始">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic3.zhimg.com/80/v2-81f21981c992bc0b5b1acf04b37ff6c2_720w.webp">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240531004715586.png">
+<meta property="article:published_time" content="2024-05-30T17:17:06.000Z">
+<meta property="article:modified_time" content="2024-05-30T17:17:06.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic3.zhimg.com/80/v2-81f21981c992bc0b5b1acf04b37ff6c2_720w.webp">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-课编程/第14讲/二分图" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/31/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC14%E8%AE%B2/%E4%BA%8C%E5%88%86%E5%9B%BE/" class="article-date">
+  <time class="dt-published" datetime="2024-05-30T17:17:06.000Z" itemprop="datePublished">2024-05-31</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="二分图（Bipartite-Graph）"><a href="#二分图（Bipartite-Graph）" class="headerlink" title="二分图（Bipartite Graph）"></a>二分图（Bipartite Graph）</h3><p>二分图是一种特殊的图，它的特性是可以将图中的节点划分为两个互不相交的集合，且图中的每条边连接的两个节点分别属于这两个不同的集合。换句话说，二分图中不存在连接同一集合内两个节点的边。这种图的结构可以用一个二维的矩阵来表示，其中矩阵的行和列分别代表两个集合中的节点，矩阵中的元素表示节点间是否存在连接。</p>
+<p>下图是典型的二分图。</p>
+<img src="https://pic3.zhimg.com/80/v2-81f21981c992bc0b5b1acf04b37ff6c2_720w.webp" alt="img" style="zoom:50%;" />
+
+<p>如果判断一个图是不是二分图？</p>
+<p>开始对任意一未染色的顶点染色。</p>
+<p>判断其相邻的顶点中，若未染色则将其染上和相邻顶点不同的颜色。</p>
+<p>若已经染色且颜色和相邻顶点的颜色相同则说明不是二分图，若颜色不同则继续判断。</p>
+<p>bfs和dfs可以搞定！</p>
+<h3 id="模板题目"><a href="#模板题目" class="headerlink" title="模板题目"></a>模板题目</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">我们用“怨气值”（一个正整数值）来表示某两名罪犯之间的仇恨程度，怨气值越大，则这两名罪犯之间的积怨越多。如果两名怨气值为C的罪犯被关押在同一监狱，他们之间会发生摩擦，并造成影响力为c的冲突事件。每年年末，警察局会将本年内监狱中的所有冲突事件按影响力从大到小排成一个列表，然后上报到S城Z市长那里。公务繁忙的Z市长只会去看列表中的第一个事件的影响力，如果影响很坏，他就会考虑撤换警察局长。在详细考察了N名罪犯间的矛盾关系后，警察局长觉得压力巨大。他准备将罪犯们在两座监狱内重新分配，以求产生的冲突事件影响力都较小，从而保住自己的乌纱帽。假设只要处于同一监狱内的某两个罪犯间有仇恨，那么他们一定会在每年的某个时候发生摩擦。</span><br><span class="line"> 那么，应如何分配罪犯，才能使Z市长看到的那个冲突事件的影响力最小？这个最小值是多少？罪犯数量N≤2*10^4^，仇恨关系的数量M≤10^5^。</span><br></pre></td></tr></table></figure>
+
+<h4 id="题解-染色法"><a href="#题解-染色法" class="headerlink" title="题解-染色法"></a>题解-染色法</h4><h5 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h5><ol>
+<li><p><strong>二分枚举最大边权 limit</strong>：在区间 [0, 10^9] 之间枚举最大边权 limit。当 limit 固定后，问题转化为判断能否将所有点分成两组，使得所有权重大于 limit 的边都在组间，而不在组内。</p>
+</li>
+<li><p><strong>判断二分图</strong>：通过染色法来判断由所有点以及权重大于 limit 的边构成的新图是否是二分图。染色法的时间复杂度是 O(N+M)，其中 N 是点数，M 是边数。</p>
+</li>
+<li><p><strong>二分算法</strong>：利用二分搜索来加速算法，寻找最终的最大边权的最小值 Ans。如果 limit 在 [ans, 10^9] 区间内，构成的新图是二分图；如果 limit 在 [0, ans-1] 区间内，则新图不是二分图。利用这个性质，可以二分搜索出分界点 ans 的值。</p>
+</li>
+</ol>
+<h5 id="时间复杂度分析"><a href="#时间复杂度分析" class="headerlink" title="时间复杂度分析"></a>时间复杂度分析</h5><ul>
+<li>二分搜索总共进行 logC 次，其中 C 是边权的最大值。</li>
+<li>每次二分搜索使用染色法判断二分图，时间复杂度是 O(N+M)。</li>
+<li>因此，总的时间复杂度是 O((N+M)logC)。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">20010</span>, M = <span class="number">200010</span>;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="type">int</span> h[N], e[M], w[M], ne[M], idx;</span><br><span class="line"><span class="type">int</span> color[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx ++ ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> c, <span class="type">int</span> limit)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    color[u] = c;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = h[u]; ~i; i = ne[i])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (w[i] &lt;= limit) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="type">int</span> j = e[i];</span><br><span class="line">        <span class="keyword">if</span> (color[j])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (color[j] == c) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (!<span class="built_in">dfs</span>(j, <span class="number">3</span> - c, limit)) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> limit)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(color, <span class="number">0</span>, <span class="keyword">sizeof</span> color);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i ++ )</span><br><span class="line">        <span class="keyword">if</span> (color[i] == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">if</span> (!<span class="built_in">dfs</span>(i, <span class="number">1</span>, limit))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">    <span class="keyword">while</span> (m -- )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a, b, c;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">        <span class="built_in">add</span>(a, b, c);</span><br><span class="line">        <span class="built_in">add</span>(b, a, c);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> l = <span class="number">0</span>, r = <span class="number">1e9</span>;</span><br><span class="line">    <span class="keyword">while</span> (l &lt; r)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">check</span>(mid)) r = mid;</span><br><span class="line">        <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, l);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="匈牙利算法（Hungarian-Algorithm）"><a href="#匈牙利算法（Hungarian-Algorithm）" class="headerlink" title="匈牙利算法（Hungarian Algorithm）"></a>匈牙利算法（Hungarian Algorithm）</h3><p>匈牙利算法是一种用于解决二分图匹配问题的算法，主要应用于以下两个问题：</p>
+<ol>
+<li><p><strong>求二分图的最大匹配数</strong>：在二分图中，最大匹配指的是可以找到的最大数量的边的集合，这些边没有公共的端点，即任意两条边都不共享节点。例如“红娘”问题，即最多能撮合多少对男女，就是一个典型的最大匹配问题。</p>
+</li>
+<li><p><strong>求二分图的最小点覆盖数</strong>：在二分图中，点覆盖是指选择一部分节点，使得图中的每条边至少有一个端点被选中。最小点覆盖就是指选择最少数量的节点来覆盖所有的边。</p>
+</li>
+</ol>
+<h3 id="匈牙利算法的运作方式"><a href="#匈牙利算法的运作方式" class="headerlink" title="匈牙利算法的运作方式"></a>匈牙利算法的运作方式</h3><p>通过一个实际问题来解释匈牙利算法的运作方式，即如何通过算法来解决最大匹配问题：</p>
+<ol>
+<li><strong>初始化匹配</strong>：首先，从集合中的一个节点开始（比如女生集合中的一个），考虑与它相连的节点（比如男生集合中的一个），在纸上构想一个临时的匹配。</li>
+<li><strong>寻找增广路径</strong>：如果当前匹配的节点已被其他节点匹配，算法会寻找一个增广路径，即一个交替的边和非边的路径，从当前未匹配的节点出发，最终回到一个未饱和的节点（即还没有匹配的节点）。</li>
+<li><strong>重新匹配</strong>：通过增广路径，算法可以重新安排匹配，使得匹配的对数增加。</li>
+<li><strong>迭代直至完成</strong>：重复以上步骤，直到无法找到增广路径为止，此时的匹配即为最大匹配。</li>
+</ol>
+<p>白话文理解:假设现在要匹配一个班上尽量多的情侣，现在匹配到小明(男女平等，任何顺序都行)，先假设让小明和小红组成一对如果小红没对象那就匹配好了，如果小红有对象假设为小刚那让就让判断小刚能否重新找一个(递归调用自己)如果小刚能找到那就让小明和小红组一对否则小明找下一个</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">find( 小明 )//小明是否有对象</span><br><span class="line">for(auto i:女生)&#123;</span><br><span class="line">     if  (i 没对象)： match(小明，i)  //配对</span><br><span class="line">     else  (i 有对象)：</span><br><span class="line">           if (find的对象==1) match(小明，i)</span><br><span class="line">           else :迭代i //小明问下一个女生</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>匈牙利算法通过这种方式，能够有效地找到二分图中的最大匹配数，它在运筹学、网络流理论等领域有着广泛的应用。</p>
+<h3 id="案例模板"><a href="#案例模板" class="headerlink" title="案例模板"></a>案例模板</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">给定一个N行M列的棋盘，已知某些格子禁止放置。求最多能往棋盘上放多少块的长度为2、宽度为1的骨牌，骨牌的边界与格线重合（骨牌占用两个格子），并且任意两张骨牌都不重叠。N,M≤50。</span><br></pre></td></tr></table></figure>
+<h4 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h4><p>要解决一个实际问题，我们可以将其抽象为二分图匹配问题，这需要我们识别出满足二分图匹配两个关键要素的对象。</p>
+<ol>
+<li><p><strong>“0要素”</strong>：指的是在二分图中，每个集合内的节点之间没有边相连，即集合内部节点间是独立的。</p>
+</li>
+<li><p><strong>“1要素”</strong>：指的是在二分图中，每个节点只能通过一条边与其他集合中的节点相连，即每个节点只参与一条匹配边。</p>
+</li>
+</ol>
+<p>在题目中提到的骨牌问题中，骨牌覆盖的格子不能重叠，意味着每个格子只能被一块骨牌覆盖，这与“1要素”相符。因此，我们可以将棋盘上未被禁止的格子看作是图中的节点，而骨牌则相当于连接两个相邻格子（节点）的无向边。</p>
+<p>接下来，如果对棋盘进行黑白染色，使得行号加列号为偶数的格子染成白色，行号加列号为奇数的格子染成黑色，那么同色的格子不能被同一块骨牌覆盖，即同色格子之间不会有边连接，这与“0要素”相符。</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240531004715586.png" alt="image-20240531004715586"></p>
+<p>因此，通过这种染色方式，我们构建的无向图满足二分图的性质：白色格子形成左部节点集合，黑色格子形成右部节点集合，两集合内部没有边相连，且每个节点（格子）只能通过一条边与另一集合的节点相连。这样，我们就可以将实际问题抽象为二分图匹配问题，并利用相关的算法来解决。使用匈牙利算法时间复杂度是O(N^2^M^2^)。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> x first</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> y second</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; PII;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line">PII match[N][N];</span><br><span class="line"><span class="type">bool</span> g[N][N], st[N][N];</span><br><span class="line"><span class="type">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;, dy[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i ++ )<span class="comment">//枚举邻点</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a = x + dx[i], b = y + dy[i];</span><br><span class="line">        <span class="keyword">if</span> (a &amp;&amp; a &lt;= n &amp;&amp; b &amp;&amp; b &lt;= n &amp;&amp; !g[a][b] &amp;&amp; !st[a][b])<span class="comment">//不是坏点 没遍历过</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 则男[x,y] 和 女[a,b]能够配对 </span></span><br><span class="line">            st[a][b] = <span class="literal">true</span>;</span><br><span class="line">            PII t = match[a][b];<span class="comment">// </span></span><br><span class="line">            <span class="comment">//1 t.x==-1说明女[a,b]还没和其他人配对 则男[x,y]和女[a,b]可以直接配对</span></span><br><span class="line">            <span class="comment">//2 女[a,b]已经有人配对,但和女[a,b]配对的男t还有其他选项</span></span><br><span class="line">            <span class="comment">//  男t放弃和女[a,b]配对 让女[a,b]给男[x,y]配对(我感动了)</span></span><br><span class="line">            <span class="keyword">if</span> (t.x == <span class="number">-1</span> || <span class="built_in">find</span>(t.x, t.y))</span><br><span class="line">            &#123;</span><br><span class="line">                match[a][b] = &#123;x, y&#125;;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    <span class="keyword">while</span>(m--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x,y;</span><br><span class="line">        cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">        g[x][y] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">memset</span>(match,<span class="number">-1</span>,<span class="keyword">sizeof</span> match);</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">// 枚举所有和为奇数的点</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>;j&lt;=n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>((i+j)%<span class="number">2</span> &amp;&amp; !g[i][j])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">memset</span>(st,<span class="number">0</span>,<span class="keyword">sizeof</span> st);<span class="comment">//每次都需要清空st数组，因为匹配好的一对可能会有下家</span></span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">find</span>(i,j))res++;<span class="comment">//如果[i,j]能配对</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="二分图的覆盖与独立集"><a href="#二分图的覆盖与独立集" class="headerlink" title="二分图的覆盖与独立集"></a>二分图的覆盖与独立集</h2><p>​	给定一张二分图，求出一个最小的点集S,使得图中任意一条边都有至少一个端 点属于S。这个问题被称为二分图的最小点覆盖(vertex cover),简称最小覆盖。</p>
+<h3 id="最小点覆盖数（Minimum-Vertex-Cover）"><a href="#最小点覆盖数（Minimum-Vertex-Cover）" class="headerlink" title="最小点覆盖数（Minimum Vertex Cover）"></a>最小点覆盖数（Minimum Vertex Cover）</h3><p>在图论中，点覆盖（Vertex Cover）是指图中的一组点，使得图中的每条边至少与该集合中的一个点相连。最小点覆盖数问题就是寻找最小的这样一个点集合，使得覆盖所有的边。</p>
+<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><ul>
+<li><strong>最小点覆盖数</strong>与<strong>最大匹配数</strong>在二分图上是等价的。也就是说，在二分图上，最小点覆盖数等于最大匹配数。</li>
+<li>一个图的<strong>最大独立集</strong>（即图中最大的没有边相连的点的集合）的大小与它的最小点覆盖数之和等于总点数。这是因为，最大独立集中的点不能被选入点覆盖，所以不在独立集中的点必须全部被选入点覆盖。</li>
+</ul>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><p>最小点覆盖数在许多领域都有应用，例如在调度问题、网络设计、资源分配等场景中。</p>
+<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><p>在二分图上，最小点覆盖数可以通过以下步骤求解：</p>
+<ol>
+<li><strong>二分图检测</strong>：首先确定给定的图是否为二分图。如果是，继续下一步；如果不是，最小点覆盖问题可能需要其他类型的算法。</li>
+<li><strong>最大匹配</strong>：使用匈牙利算法或其他最大匹配算法来找到二分图的最大匹配。</li>
+<li><strong>计算最小点覆盖</strong>：在二分图上，最大匹配数即为最小点覆盖数。</li>
+</ol>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">有两台机器A,B及N个任务。母台机态有M种不同的模式。对于每个任务(1≤i≤N),给定两个整数a[i]和b[i]，表示如果该任务在A上执行，需要设置模式为a[i],如果在B上执行，需要模式为b[i]。任务可以以任意顺序被执行，但每台机器转换一次模式就要重启一次。求怎样分配任务并合理安排顺序，能使机器重启次数最少。</span><br><span class="line">数据范围：1≤N,M≤100,1≤a[i],b[i]≤M。</span><br></pre></td></tr></table></figure>
+
+<h4 id="题解-1"><a href="#题解-1" class="headerlink" title="题解"></a>题解</h4><p>在解决二分图最大匹配问题时，我们通常会寻找题目中的“0要素”和“1要素”作为解题的关键点。而二分图最小覆盖问题则具有不同的模型特点，可以概括为“2要素”：</p>
+<ol>
+<li><p><strong>“2要素”</strong>：在二分图最小覆盖问题中，每条边连接两个端点，我们需要至少选择其中一个端点来构成覆盖集。这意味着，对于图中的任意一条边，覆盖集必须包含其一个端点。</p>
+</li>
+<li><p><strong>抽象成二分图最小覆盖模型</strong>：如果一个实际问题具有“2要素”的特征，即每个决策或任务需要在两个选项中至少选择一个，那么这个问题可以尝试抽象为二分图最小覆盖问题来解决。</p>
+</li>
+</ol>
+<p>具体到题目中的例子：</p>
+<ul>
+<li>假设有机器A和机器B，每台机器有M种不同的工作模式。</li>
+<li>每个“任务”要么在机器A上以特定的模式a[i]执行，要么在机器B上以特定的模式b[i]执行，且每个任务必须选择一个模式来执行。</li>
+</ul>
+<p>根据这个设定，我们可以构建一个二分图：</p>
+<ul>
+<li>机器A的M种模式视为图中的M个左部节点。</li>
+<li>机器B的M种模式视为图中的M个右部节点。</li>
+<li>每个任务通过一条无向边连接左部的第a[i]个节点和右部的第b[i]个节点。</li>
+</ul>
+<p>这样构建的图是一个二分图，因为在任何时候，边连接的两个节点分别属于两个不同的集合（机器A的模式集合和机器B的模式集合）。求解这个二分图的最小覆盖，意味着我们要找出一个最小的节点集合，使得图中的每条边至少有一个端点被这个集合包含。这等价于用尽量少的模式（启动次数）来执行所有的任务。</p>
+<p>求解二分图最小覆盖的时间复杂度为O(NM)，其中N是任务的数量，M是每种机器的模式数量。通过匈牙利算法或其他匹配算法，我们可以找到这个最小覆盖集，从而优化任务的执行策略。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">100</span><span class="number">+10</span>;</span><br><span class="line"><span class="type">int</span> n, m, k;</span><br><span class="line"><span class="type">int</span> match[N];</span><br><span class="line"><span class="type">bool</span> g[N][N], st[N];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(!st[i] &amp;&amp; g[x][i])</span><br><span class="line">        &#123;</span><br><span class="line">            st[i] = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(match[i]==<span class="number">-1</span>||<span class="built_in">find</span>(match[i]))</span><br><span class="line">            &#123;</span><br><span class="line">                match[i]=x;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; n, n)</span><br><span class="line">    &#123;</span><br><span class="line">        cin &gt;&gt; m &gt;&gt; k;</span><br><span class="line">        <span class="built_in">memset</span>(g, <span class="number">0</span>, <span class="keyword">sizeof</span> g);</span><br><span class="line">        <span class="built_in">memset</span>(match, <span class="number">-1</span>, <span class="keyword">sizeof</span> match);</span><br><span class="line">        <span class="keyword">while</span> (k -- )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> t, a, b;</span><br><span class="line">            cin &gt;&gt; t &gt;&gt; a &gt;&gt; b;</span><br><span class="line">            <span class="keyword">if</span> (!a || !b) <span class="keyword">continue</span>;</span><br><span class="line">            g[a][b] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++ )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">memset</span>(st, <span class="number">0</span>, <span class="keyword">sizeof</span> st);</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">find</span>(i)) res ++ ;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; res &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1. </p>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>最大匹配数 &#x3D; 最小点覆盖 &#x3D; 总点数-最大独立集 &#x3D; 总点数-最小路径覆盖。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/31/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC14%E8%AE%B2/%E4%BA%8C%E5%88%86%E5%9B%BE/" data-id="cm23pcg0t0004362z2rqkb0x1" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/31/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC15%E8%AE%B2/splay/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/29/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC13%E8%AE%B2/%7FTarjan%E7%AE%97%E6%B3%95%E4%B8%8E%E6%97%A0%E5%90%91%E5%9B%BE%E8%BF%9E%E9%80%9A%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/11/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC2%E8%AE%B2/%E8%B4%AA%E5%BF%83%E8%A7%A3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC8%E8%AE%B2/%E8%83%8C%E5%8C%85%E6%A8%A1%E5%9E%8B/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC6%E8%AE%B2/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/08/18/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC7%E8%AE%B2/%E7%BA%BF%E6%AE%B5%E6%A0%91/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

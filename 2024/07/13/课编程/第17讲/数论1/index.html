@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="费蜀定理定义：裴蜀定理，又称贝祖定理（Bézout’s lemma）、贝祖等式（Bézout’s identity）。是一个关于最大公约数的定理。（引用oiwiki）大致内容就是ax+by&#x3D;z  其中x和y是任意整数，那么z必然能够整除gcd(a,b) 证明：首先 a与b皆能够整除gcd(a,b)，不妨设 gcd(a,b)为G,c1&#x3D;a&#x2F;G,c2&#x3D;b&amp;#x2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/07/13/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC17%E8%AE%B2/%E6%95%B0%E8%AE%BA1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="费蜀定理定义：裴蜀定理，又称贝祖定理（Bézout’s lemma）、贝祖等式（Bézout’s identity）。是一个关于最大公约数的定理。（引用oiwiki）大致内容就是ax+by&#x3D;z  其中x和y是任意整数，那么z必然能够整除gcd(a,b) 证明：首先 a与b皆能够整除gcd(a,b)，不妨设 gcd(a,b)为G,c1&#x3D;a&#x2F;G,c2&#x3D;b&amp;#x2">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-07-12T17:00:38.000Z">
+<meta property="article:modified_time" content="2024-07-12T17:00:38.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-课编程/第17讲/数论1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/13/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC17%E8%AE%B2/%E6%95%B0%E8%AE%BA1/" class="article-date">
+  <time class="dt-published" datetime="2024-07-12T17:00:38.000Z" itemprop="datePublished">2024-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="费蜀定理"><a href="#费蜀定理" class="headerlink" title="费蜀定理"></a>费蜀定理</h3><h4 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h4><p>裴蜀定理，又称贝祖定理（Bézout’s lemma）、贝祖等式（Bézout’s identity）。是一个关于最大公约数的定理。（引用oiwiki）<br>大致内容就是ax+by&#x3D;z  其中x和y是任意整数，那么z必然能够整除gcd(a,b)</p>
+<h4 id="证明："><a href="#证明：" class="headerlink" title="证明："></a>证明：</h4><p>首先 a与b皆能够整除gcd(a,b)，不妨设 gcd(a,b)为G,c1&#x3D;a&#x2F;G,c2&#x3D;b&#x2F;G。那么ax+by&#x3D;c1xG+c2yG,那么ax+by&#x3D;(c1x+c2x)G,且c1,x,c2,y均为整数所以z能够整数gcd(a,b)。证毕。</p>
+<h3 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h3><p>$$<br>a^{p-1} \equiv 1 \mod p<br>$$<br>费马小定理用来求除法取余问题<br>由上公式可知 a的逆元为 a^{p-2}也就是a*a^{p-2}&#x3D;1，且由a*(1&#x2F;a)&#x3D;1得(1&#x2F;a) mod p&#x3D;a^{p-2} mod p<br>所以 如果题目里要求 a&#x2F;b模p的值 等价于求a*qmi(b,p-2) mod p  &#x2F;&#x2F;qmi为快速幂函数</p>
+<h3 id="扩展欧几里得"><a href="#扩展欧几里得" class="headerlink" title="扩展欧几里得"></a>扩展欧几里得</h3><p>问题：给定整数 a,b，令 d&#x3D;gcd(a,b)，解方程：ax+by&#x3D;d。</p>
+<p>先从 gcd 入手，我们知道gcd(a, b) &#x3D; gcd(b, a \mod b) ，那么显然 ( ar + by &#x3D; ba + (a % b)y &#x3D; d )。<br>假设我们求解出了方程<br>$$<br>b \cdot x + (a % b) \cdot y &#x3D; d<br>$$<br>的一组解：x &#x3D; x_0, y &#x3D; y_0 ，那么原方程的解与  x_0, y_0  关系是怎么样的<br>推导如下<br>$$<br>\begin{align*}<br>d &amp;&#x3D; ba_0 + (a % b) y_0, \<br>d &amp;&#x3D; bz_0 + (a - L \cdot b) g_0, \<br>d &amp;&#x3D; ba_0 + ay_0 - L \cdot b \cdot y_0, \<br>d &amp;&#x3D; a_0 + b(z_0 - L \cdot y_0).<br>\end{align*}<br>$$<br>我们再把上面这个式子  ax + by &#x3D; d  进行比对，发现原方程的一组特解就是。<br>$$<br>x &#x3D; y_0, \quad y &#x3D; z_0 - L \cdot y_0<br>$$<br>模板</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">void exgcd(int a,int b,int &amp;x,int &amp;y)&#123;</span><br><span class="line">    if(b==0)&#123;</span><br><span class="line">        x=1;</span><br><span class="line">        y=0;</span><br><span class="line">    &#125;</span><br><span class="line">    exgcd(b,a%b,x,y);</span><br><span class="line">    int t=x;</span><br><span class="line">    x=y;</span><br><span class="line">    y=t-a/b*y;</span><br><span class="line">&#125;</span><br><span class="line">int main()&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    while(n--)&#123;</span><br><span class="line">        int a, b, m, x, y;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b &gt;&gt; m;</span><br><span class="line">        int d = exgcd(a, m, x, y);</span><br><span class="line">        if(b % d == 0)&#123;</span><br><span class="line">            cout &lt;&lt; (long long)x * b / d % m&lt;&lt; endl;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            cout &lt;&lt; &quot;impossible&quot; &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="中国剩余定理"><a href="#中国剩余定理" class="headerlink" title="中国剩余定理"></a>中国剩余定理</h3><h2 id="中国剩余定理的应用"><a href="#中国剩余定理的应用" class="headerlink" title="中国剩余定理的应用"></a>中国剩余定理的应用</h2><p>$$<br>\begin{align*}<br>&amp;\text{有 } n \text{ 个方程 } x \equiv a_i \mod b_i, \<br>&amp;\text{其中 } i &#x3D; 1, 2, \ldots, n, \<br>&amp;\text{前 } k-1 \text{ 个方程的最小正整数解是 } ans_{k-1}, \<br>&amp;\text{令 } M &#x3D; \text{lcm}(b_1, b_2, \ldots, b_{k-1}), \<br>&amp;\text{设 } ans_{k} &#x3D; ans_{k-1} + Mx, \text{ 其中 } x \text{ 为整数}, \<br>&amp;ans_{k-1}+ xM \equiv a_k \mod b_k, \<br>&amp;Mx \equiv a_k - ans_{k-1} \mod b_k, \<br>&amp;Mx + b_ky \equiv a_k - ans_{k-1}.<br>\end{align*}<br>$$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">typedef long long LL;</span><br><span class="line">int n;</span><br><span class="line">LL ans,M=1; </span><br><span class="line">LL gcd(LL x,LL y)&#123; return y?gcd(y,x%y):x; &#125; </span><br><span class="line">LL lcm(LL x,LL y)&#123; return x*y/gcd(x,y); &#125;</span><br><span class="line">LL exgcd(LL A,LL B,LL &amp;x,LL &amp;y)&#123;</span><br><span class="line">    if(!B)&#123; x=1,y=0;return x; &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        LL d=exgcd(B,A%B,y,x);</span><br><span class="line">        y-=A/B*x;return d;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line">void crt(LL A,LL B)&#123;</span><br><span class="line">    LL a=M,b=B,c=((A-ans)%B+B)%B,x,y;</span><br><span class="line">    LL g=exgcd(a,b,x,y);</span><br><span class="line">    if(c%g) return;</span><br><span class="line">    x=((x*(c/g))%B+B)%B;ans+=x*M;</span><br><span class="line">    M=lcm(M,B);ans=(ans%M+M)%M;</span><br><span class="line">&#125; </span><br><span class="line">int main()&#123;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">    LL a,b;</span><br><span class="line">    for(int i=1;i&lt;=n;i++)</span><br><span class="line">        scanf(&quot;%lld%lld&quot;,&amp;a,&amp;b),crt(b,a);</span><br><span class="line">    printf(&quot;%lld\n&quot;,ans);</span><br><span class="line">    return 0;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="同余最短路"><a href="#同余最短路" class="headerlink" title="同余最短路"></a>同余最短路</h3><h4 id="同余最短路问题描述："><a href="#同余最短路问题描述：" class="headerlink" title="同余最短路问题描述："></a>同余最短路问题描述：</h4><p>同余最短路算法用于解决这样的问题：给定一组整数 ( n ) 个，每个整数可以重复使用任意多次，我们需要确定使用这些整数可以拼凑出哪些数，尤其是关注在某个给定范围 ( [l, r] ) 内能拼凑出的数的个数。</p>
+<h4 id="算法思想："><a href="#算法思想：" class="headerlink" title="算法思想："></a>算法思想：</h4><p>算法的核心思想是基于同余理论。考虑模 ( A_1 ) 的每个同余类 ( [x] )，如果使用整数集 $A_2, A_3, \ldots, A_n  $可以凑出一个同余类 ( [x] ) 中的某个数 ( x )，那么可以不断加 ( A_1 ) 来凑出 ( [x] ) 中所有大于等于 ( x ) 的数。</p>
+<h4 id="构建图模型："><a href="#构建图模型：" class="headerlink" title="构建图模型："></a>构建图模型：</h4><p>将问题转化为图论问题，对于模 ( A_1 ) 的每个同余类，我们构建一个节点，并且对于 ( i &#x3D; 2 ) 到 ( n ) 的每个整数 ( A_i )，我们在 ( [x] ) 加 ( A_i ) 后得到的同余类节点之间连一条边，边权为 ( A_i )。这样，每个同余类中能被凑出的最小数就是从 ( [0] ) 到该同余类的最短路径长度。</p>
+<h3 id="算法实现："><a href="#算法实现：" class="headerlink" title="算法实现："></a>算法实现：</h3><ol>
+<li>对于模 $A_1 $ 的每个同余类  [x] ，创建一个节点。</li>
+<li>对于每个 $ A_i (i&#x3D;2,3,\ldots,n) $，从 ( [x] ) 节点到 $ [(x + A_i) \mod A_1] $节点连一条边，边权为 ( A_i )。</li>
+<li>运行单源最短路算法（如 Dijkstra 算法）从 ( [0] ) 节点开始，计算到每个同余类 ( [x] ) 的最短路径长度。</li>
+<li>根据最短路径长度计算在给定范围 ( [l, r] ) 内能拼凑出的数的个数。</li>
+</ol>
+<h4 id="算法复杂度："><a href="#算法复杂度：" class="headerlink" title="算法复杂度："></a>算法复杂度：</h4><p>算法的复杂度取决于所使用的最短路算法。如果使用优先队列版的 Dijkstra 算法，复杂度为 $O(nA_1 + n\log(nA_1)) $，其中 ( A_1 ) 是模数，( n ) 是整数个数。</p>
+<h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; A[<span class="number">1</span>]; ++i)</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">2</span>; j &lt;= n; ++j)</span><br><span class="line">        G[i].<span class="built_in">emplace_back</span>((i + A[j]) % A[<span class="number">1</span>], A[j]);</span><br><span class="line"><span class="comment">// 跑单源最短路</span></span><br><span class="line">ll R = <span class="number">0</span>, L = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; A[<span class="number">1</span>]; ++i) &#123;</span><br><span class="line">    <span class="keyword">if</span> (dis[i] != INF &amp;&amp; dis[i] &lt;= r) R += (r - dis[i]) / A[<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (dis[i] != INF &amp;&amp; dis[i] &lt;= l - <span class="number">1</span>) L += (l - <span class="number">1</span> - dis[i]) / A[<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; R - L &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+
+<h4 id="应用示例："><a href="#应用示例：" class="headerlink" title="应用示例："></a>应用示例：</h4><p>例如，对于整数集合 $ A &#x3D; {5, 7, 11} $,我们可以构建一个图，其中 ( [0] ) 到 ( [3] ) 的最短路径是 $ [0] \xrightarrow{7} [2] \xrightarrow{11} [3] $，最短路径长度为 18。这意味着在模 5 的同余类 ( [3] ) 中，大于等于 18 的所有数都可以被凑出来。</p>
+<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><p>同余最短路是一种将拼凑整数问题转化为图论问题的算法，通过构建一个特殊的图并应用最短路算法来解决问题。这种方法提供了一种与询问值域无关的解决方案，从而在某些情况下可以显著提高效率。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/13/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC17%E8%AE%B2/%E6%95%B0%E8%AE%BA1/" data-id="cm23pcg0u000b362zgdewh1bo" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/07/13/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC1%E8%AE%B2/%E4%BD%8D%E8%BF%90%E7%AE%97%E9%80%92%E5%BD%92%E5%92%8C%E9%80%92%E6%8E%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/07/13/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC12%E8%AE%B2/%E8%B4%9F%E7%8E%AF%E5%92%8C%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/11/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC2%E8%AE%B2/%E8%B4%AA%E5%BF%83%E8%A7%A3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC8%E8%AE%B2/%E8%83%8C%E5%8C%85%E6%A8%A1%E5%9E%8B/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC6%E8%AE%B2/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/08/18/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC7%E8%AE%B2/%E7%BA%BF%E6%AE%B5%E6%A0%91/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

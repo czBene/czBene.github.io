@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="分块算法的基本思想：  分块算法将整个区间分成若干个长度相同的子区间，每个子区间的长度通常取为总区间长度的平方根$( \sqrt{N} )$​​​。这种思想被称为“大段维护，小段朴素”，意味着对于跨越多个子区间的操作，我们采用维护一个总和或增量值的方法；而对于完全位于单个子区间内的操作，则直接进行朴素的迭代处理。 修改操作：当需要对区间 [l, r] 进行修改时，可以将这个区间划分为连续的大段和两">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/08/18/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC15%E8%AE%B2/%E5%88%86%E5%9D%97/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="分块算法的基本思想：  分块算法将整个区间分成若干个长度相同的子区间，每个子区间的长度通常取为总区间长度的平方根$( \sqrt{N} )$​​​。这种思想被称为“大段维护，小段朴素”，意味着对于跨越多个子区间的操作，我们采用维护一个总和或增量值的方法；而对于完全位于单个子区间内的操作，则直接进行朴素的迭代处理。 修改操作：当需要对区间 [l, r] 进行修改时，可以将这个区间划分为连续的大段和两">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240712125755089.png">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240712125808675.png">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-1655c12e302625448e5c09c6349258d7_r.jpg">
+<meta property="article:published_time" content="2024-08-18T01:27:12.000Z">
+<meta property="article:modified_time" content="2024-08-18T01:27:12.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240712125755089.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-课编程/第15讲/分块" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/08/18/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC15%E8%AE%B2/%E5%88%86%E5%9D%97/" class="article-date">
+  <time class="dt-published" datetime="2024-08-18T01:27:12.000Z" itemprop="datePublished">2024-08-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="分块算法的基本思想："><a href="#分块算法的基本思想：" class="headerlink" title="分块算法的基本思想："></a>分块算法的基本思想：</h3><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240712125755089.png" alt="image-20240712125755089"></p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240712125808675.png" alt="image-20240712125808675"></p>
+<p>分块算法将整个区间<strong>分成若干个长度相同的子区间</strong>，每个子区间的长度通常取为总区间长度的平方根$( \sqrt{N} )$​​​。这种思想被称为<strong>“大段维护，小段朴素”</strong>，意味着对于跨越多个子区间的操作，我们采用维护一个总和或增量值的方法；而对于完全位于单个子区间内的操作，则直接进行朴素的迭代处理。</p>
+<h4 id="修改操作："><a href="#修改操作：" class="headerlink" title="修改操作："></a>修改操作：</h4><p>当需要对区间 [l, r] 进行修改时，可以将这个区间划分为连续的大段和两边的小段。小段使用朴素方法处理，而大段则使用懒标记（lazy propagation）来维护。</p>
+<h4 id="查询操作："><a href="#查询操作：" class="headerlink" title="查询操作："></a>查询操作：</h4><p>查询操作与修改操作类似，也是将区间 [l, r] 分为连续的大段和两边的小段。小段使用朴素方法查询，大段则利用维护的总和或增量值来快速得到结果。</p>
+<p><img src="https://pic4.zhimg.com/v2-1655c12e302625448e5c09c6349258d7_r.jpg" alt="img"></p>
+<h3 id="时间复杂度："><a href="#时间复杂度：" class="headerlink" title="时间复杂度："></a>时间复杂度：</h3><p>分块算法的时间复杂度通常稳定在 $O(T\sqrt{N}) $​​，其中  T  是操作的数量，N  是区间的总长度。与树状数组或线段树相比，分块算法在时间复杂度上可能更高，但它的通用性更好，代码量也较少，因此在某些情况下是一个不错的选择。</p>
+<p>分块原理比较简单，下面是代码模板</p>
+<h3 id="代码详解"><a href="#代码详解" class="headerlink" title="代码详解"></a>代码详解</h3><h4 id="案例："><a href="#案例：" class="headerlink" title="案例："></a>案例：</h4><p>已知一个数列，你需要进行下面两种操作：</p>
+<p>将某区间每一个数加上 k。<br>求出某区间每一个数的和。</p>
+<h4 id="预处理："><a href="#预处理：" class="headerlink" title="预处理："></a>预处理：</h4><p>为了方便减少码量和没必要的错误，要进行预处理来找出某些信息。</p>
+<p>首先对块编号，以及记录每个块的左右下表，其次找出每个数组它所在哪一块。最好标出每个块大小。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> sq = <span class="built_in">sqrt</span>(n);</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= sq; i++)</span><br><span class="line">&#123;   </span><br><span class="line">    l[i]=r[i<span class="number">-1</span>]<span class="number">+1</span>;</span><br><span class="line">    <span class="comment">//l[i] = n / sq * (i - 1) + 1; // l[i]表示i号块包含元素的左端点</span></span><br><span class="line">    r[i] = n / sq * i; <span class="comment">// r[i]表示i号块包含元素的右端点</span></span><br><span class="line">&#125;</span><br><span class="line">r[sq]=n;<span class="comment">//由于n不一定能开根开出整数，会有误差，我们把最后一个大块第sq的右端点里为n</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= sq; i++)</span><br><span class="line">    size[i] = r[i] - l[i] + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= sq; i++)</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = l[i]; j &lt;= r[i]; j++)&#123;</span><br><span class="line">        bel[j] = i; <span class="comment">// 将每个数组标记好它在哪块</span></span><br><span class="line">        sum[i]+=A[j];</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="修改操作：-1"><a href="#修改操作：-1" class="headerlink" title="修改操作："></a>修改操作：</h4><p>当需要对区间 [l, r] 进行修改时，可以将这个区间划分为连续的大段和两边的小段。小段使用朴素方法处理，而大段则使用懒标记（lazy propagation）来维护。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">   修改一个区间[x,y]。x和y大致分为两种情况：1.同属一个块 2.不在一个块</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//特判x和y在一个块内，朴素加就行</span></span><br><span class="line"><span class="keyword">if</span> (bel[x] == bel[y])&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = x; i &lt;= y; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        A[i] += k;</span><br><span class="line">        sum[bel[i]] += k;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//如果不在一个块，对两边零散的位置朴素加，然后对中间的打上懒标记</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = x; i &lt;= r[bel[x]]; i++)</span><br><span class="line">&#123;</span><br><span class="line">    A[i] += k;</span><br><span class="line">    sum[bel[i]] += k;<span class="comment">//每个大块也要加上k</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = l[bel[y]]; i &lt;= y; i++)<span class="comment">//同上</span></span><br><span class="line">&#123;</span><br><span class="line">    A[i] += k;</span><br><span class="line">    sum[bel[i]] += k;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//对中间的块打上懒标记</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = bel[x] + <span class="number">1</span>; i &lt; bel[y]; ++i)</span><br><span class="line">&#123; </span><br><span class="line">    lazy[i] += k;</span><br><span class="line">    sum[bel[i]]+=k*size[i];</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">//lazy[i]=k,i所在块里面的每个元素都要给它加上k</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="查询操作：-1"><a href="#查询操作：-1" class="headerlink" title="查询操作："></a>查询操作：</h4><p>查询操作与修改操作类似，也是将区间 [l, r] 分为连续的大段和两边的小段。小段使用朴素方法查询，大段则利用维护的总和或增量值来快速得到结果。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*查询也是将x和y分为两类。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//同属一个块就暴力加上每个元素，记得还有懒标记</span></span><br><span class="line"><span class="keyword">if</span> (bel[x] == bel[y])&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = x; i &lt;= y; i++)</span><br><span class="line">        s += A[i] + lazy[bel[i]]; <span class="comment">// 注意要加上标记</span></span><br><span class="line"><span class="comment">//不是就先处理两边碎的，中间的直接加上大块。</span></span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = x; i &lt;= r[bel[x]]; i++)</span><br><span class="line">    s += A[i] + lazy[bel[i]];</span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = l[bel[y]]; i &lt;= y; i++)</span><br><span class="line">    s += A[i] + lazy[bel[i]];</span><br><span class="line"><span class="comment">//处理整块</span></span><br><span class="line"><span class="keyword">for</span> (<span class="type">int</span> i = bel[x] + <span class="number">1</span>; i &lt; bel[y]; i++)</span><br><span class="line">    s += sum[i] + lazy[i] * size[i]; <span class="comment">// 注意标记要乘上块长</span></span><br><span class="line"><span class="keyword">return</span> s;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h4><p>分块算法适用于处理涉及大量区间修改和查询的问题，尤其是在数据量较大且操作较为频繁时，分块算法能够提供较为高效的解决方案。</p>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><p>分块是一种简单而有效的算法思想，通过将数据划分为多个子区间并采用不同的策略来处理区间操作，可以在很多情况下提供比朴素方法更好的性能。尽管它可能不如树状数组或线段树那样复杂度低，但它的通用性和简洁性使其成为一个实用的选择。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/08/18/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC15%E8%AE%B2/%E5%88%86%E5%9D%97/" data-id="cm23pcg0u0009362z2defg6p7" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/08/18/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC7%E8%AE%B2/%E7%BA%BF%E6%AE%B5%E6%A0%91/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/08/15/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC5%E8%AE%B2/%E5%B9%B6%E6%9F%A5%E9%9B%86%E6%9C%80%E8%BF%91%E5%85%AC%E5%85%B1%E7%A5%96%E5%85%88lca/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/11/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC2%E8%AE%B2/%E8%B4%AA%E5%BF%83%E8%A7%A3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC8%E8%AE%B2/%E8%83%8C%E5%8C%85%E6%A8%A1%E5%9E%8B/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC6%E8%AE%B2/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/08/18/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC7%E8%AE%B2/%E7%BA%BF%E6%AE%B5%E6%A0%91/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

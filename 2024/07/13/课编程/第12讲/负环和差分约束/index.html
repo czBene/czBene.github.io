@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="负环定义给定一张有向图（在无向图中，每条边可以被视为两个方向相反的有向边，因此无向图可以按照有向图来处理），图中的每条边都分配有一个权重（或称为长度）。如果某条边的权重是负数，那么这条边被称为负权边。此外，如果图中存在一个闭合的环路，且该环路上所有边的权重之和为负数，则这个环路被称为“负环”。  如果图中存在负环，那么它会导致一些直观的表现：无论经过多少次迭代，总能找到一条有向边 ((x, y,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/07/13/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC12%E8%AE%B2/%E8%B4%9F%E7%8E%AF%E5%92%8C%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="负环定义给定一张有向图（在无向图中，每条边可以被视为两个方向相反的有向边，因此无向图可以按照有向图来处理），图中的每条边都分配有一个权重（或称为长度）。如果某条边的权重是负数，那么这条边被称为负权边。此外，如果图中存在一个闭合的环路，且该环路上所有边的权重之和为负数，则这个环路被称为“负环”。  如果图中存在负环，那么它会导致一些直观的表现：无论经过多少次迭代，总能找到一条有向边 ((x, y,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240525102938036.png">
+<meta property="og:image" content="https://picx.zhimg.com/v2-3bba024ff266b82117e593fecf1c69ad_720w.png?source=d16d100b">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240529021827059.png">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240529021906702.png">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240529022150872.png">
+<meta property="article:published_time" content="2024-07-12T16:55:36.000Z">
+<meta property="article:modified_time" content="2024-07-12T16:55:36.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240525102938036.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-课编程/第12讲/负环和差分约束" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/07/13/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC12%E8%AE%B2/%E8%B4%9F%E7%8E%AF%E5%92%8C%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/" class="article-date">
+  <time class="dt-published" datetime="2024-07-12T16:55:36.000Z" itemprop="datePublished">2024-07-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="负环"><a href="#负环" class="headerlink" title="负环"></a>负环</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>给定一张有向图（在无向图中，每条边可以被视为两个方向相反的有向边，因此无向图可以按照有向图来处理），图中的每条边都分配有一个权重（或称为长度）。如果某条边的权重是负数，那么这条边被称为负权边。此外，如果图中存在一个闭合的环路，且该环路上所有边的权重之和为负数，则这个环路被称为“负环”。</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240525102938036.png" alt="image-20240525102938036"></p>
+<p>如果图中存在负环，那么它会导致一些直观的表现：无论经过多少次迭代，总能找到一条有向边 ((x, y, z))，使得从 (y) 到 (x) 的已知最短距离 (dist[y]) 大于从 (x) 出发经过这条边到达 (y) 的距离 (dist[x] + z)。这意味着，使用像Bellman-Ford或SPFA这样的算法时，它们将永远无法结束，因为每次迭代都会发现新的更短路径。</p>
+<p>根据抽屉原理，如果存在一个 (dist[x])，表示从起点1到节点 (x) 的最短路径包含至少 (n) 条边，那么这条路径必然在某处重复经过某个节点 (P)。换句话说，这条最短路径上存在一个环，在这个环上的每个节点 (P) 都能更新下一个节点的 (dist) 值。如果绕这个环转一圈，最终能够更新环上节点 (P) 自己的 (dist) 值。因此，这个环的总长度必须是负数。每绕这个环一圈，最短路径的长度就会变得更小，这意味着路径长度永远不会稳定，也不可能达到一个状态，使得每条边都满足三角形不等式。</p>
+<p>基于这个结论，我们可以得出以下的判定法则：如果一个图中存在负环，那么从某个节点到它自己的最短路径永远不会收敛，因为存在一个可以通过不断绕环来不断缩短的路径。这个特性可以用来检测图中是否存在负环，因为如果最短路径算法无法在有限步内完成，这通常意味着图中存在负环。</p>
+<p>在图论中，判断负环的存在性对于确定图的某些性质非常重要。</p>
+<p>以下是对&#x3D;&#x3D;<strong>SPFA（Shortest Path Faster Algorithm）判定负环</strong>&#x3D;&#x3D;的方法的重新阐述：</p>
+<ol>
+<li><p>在图论中，判断负环的存在性对于确定图的某些性质非常重要。以下是对SPFA（Shortest Path Faster Algorithm）判定负环的方法的重新阐述：</p>
+<ol>
+<li><p><strong>定义边数计数</strong>：我们定义一个数组 <code>cnt[x]</code> 来表示从起点 1 到节点 x 的最短路径上包含的边的数目。初始化时，<code>cnt[1]</code> 设置为 0，因为从起点到它自己的最短路径不包含任何边。</p>
+</li>
+<li><p><strong>更新边数</strong>：当执行距离更新操作 <code>dist[y] = dist[x] + z</code> 时，同时更新 <code>cnt[y] = cnt[x] + 1</code>，其中 <code>z</code> 是边的权重。</p>
+</li>
+<li><p><strong>检测负环</strong>：如果在更新过程中发现 <code>cnt[y]</code> 大于等于图中顶点的数量 <code>n</code>，即 <code>cnt[y] ≥ n</code>，这表明存在一个包含至少 <code>n</code> 条边的循环路径，这意味着图中存在负环。</p>
+</li>
+<li><p><strong>算法结束</strong>：如果算法能够正常结束，即所有顶点的距离更新完成后没有发现 <code>cnt[y] ≥ n</code> 的情况，那么图中不存在负环。</p>
+</li>
+<li><p><strong>时间复杂度</strong>：Bellman-Ford算法判定负环的时间复杂度是 O(nm)，其中 <code>n</code> 是顶点数，<code>m</code> 是边数。SPFA算法在判定负环方面通常更快，但在最坏情况下，其时间复杂度也可能达到 O(nm)。</p>
+</li>
+<li><p><strong>其他判定方法</strong>：除了上述方法，还可以通过记录每个顶点入队的次数来判定负环。如果一个顶点的入队次数达到 <code>n</code>，则表明存在负环。然而，这种方法的效率通常不如基于边数计数的方法高。</p>
+</li>
+<li><p><strong>同时使用判定方法</strong>：尽管如此，读者可以同时使用这两种方法来提高判定负环的准确性。</p>
+</li>
+<li><p><strong>设置上界</strong>：在某些情况下，可以根据运行时间限制，为队列的总长度（所有顶点的入队总次数）设置一个上限。如果超出这个上限，可以直接判定存在负环，从而避免算法超时。但这种方法可能会导致错误的判定。</p>
+</li>
+<li><p><strong>优化手段</strong>：还有其他的优化手段，比如将SPFA的队列替换为栈，或者将基于广度优先搜索（BFS）的SPFA改为基于深度优先搜索（DFS）。这些优化手段在负环存在时可能提高程序运行效率，但在负环不存在时可能会降低计算最短路径的效率。</p>
+</li>
+<li><p><strong>谨慎使用</strong>：因此，读者在使用这些优化手段时应该谨慎，根据具体情况和需求来选择最合适的方法。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h4 id="spfa判断负环模板"><a href="#spfa判断负环模板" class="headerlink" title="spfa判断负环模板"></a>spfa判断负环模板</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">510</span>,M=<span class="number">6000</span>;</span><br><span class="line"><span class="type">int</span> n,m,w;</span><br><span class="line"><span class="type">int</span> ne[M],h[N],e[M],W[M],idx;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a,<span class="type">int</span> b,<span class="type">int</span> c)</span></span>&#123;</span><br><span class="line">    W[++idx]=c,ne[idx]=h[a],e[idx]=b,h[a]=idx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">bool</span> st[N];</span><br><span class="line"><span class="type">int</span> cnt[M],dist[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">spfa</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(cnt,<span class="number">0</span>,<span class="keyword">sizeof</span> cnt);</span><br><span class="line">    <span class="built_in">memset</span>(dist,<span class="number">0</span>,<span class="keyword">sizeof</span> dist);</span><br><span class="line">    <span class="built_in">memset</span>(st, <span class="number">0</span>, <span class="keyword">sizeof</span> st);</span><br><span class="line">   </span><br><span class="line">    queue&lt;<span class="type">int</span>&gt;q;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)q.<span class="built_in">push</span>(i),st[i]=<span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">        <span class="type">int</span> zz=q.<span class="built_in">front</span>();</span><br><span class="line">      <span class="comment">// cout&lt;&lt;zz&lt;&lt;endl;</span></span><br><span class="line">        st[zz]=<span class="literal">false</span>;</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=h[zz];i;i=ne[i])&#123;</span><br><span class="line">            <span class="type">int</span> cc=e[i];</span><br><span class="line">            <span class="keyword">if</span>(dist[cc]&gt;dist[zz]+W[i])&#123;</span><br><span class="line">                dist[cc]=dist[zz]+W[i];</span><br><span class="line">                <span class="keyword">if</span>(!st[cc])&#123; </span><br><span class="line">                    q.<span class="built_in">push</span>(cc);</span><br><span class="line">                    st[cc]=<span class="number">1</span>;</span><br><span class="line">                   </span><br><span class="line">                &#125;</span><br><span class="line">                cnt[cc]=cnt[zz]<span class="number">+1</span>;</span><br><span class="line">                <span class="keyword">if</span>(cnt[cc]&gt;=n)<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);std::cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m&gt;&gt;w;</span><br><span class="line">    idx=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="type">int</span> a,b,c;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        <span class="built_in">add</span>(a,b,c);</span><br><span class="line">        <span class="built_in">add</span>(b,a,c);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=w;i++)&#123;</span><br><span class="line">        <span class="type">int</span> a,b,c;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        <span class="built_in">add</span>(a,b,-c);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">spfa</span>())cout&lt;&lt;<span class="string">&quot;YES&quot;</span>&lt;&lt;endl;</span><br><span class="line">    <span class="keyword">else</span> cout&lt;&lt;<span class="string">&quot;NO&quot;</span>&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>记录一个点经过n次才判负环是否有点太慢太蠢，这边介绍一个通关栈的方法一个Spfa+计数器这个做法里，我们不仅计数，到一定次数后，遍历父节点直接检测是否存在环，保证了解法的正确性。，要比上面的方法要快30倍的优化 提前判环法。</p>
+<h4 id="优化模板"><a href="#优化模板" class="headerlink" title="优化模板"></a>优化模板</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="comment">//using ll = long long;</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="type">int</span> n,m,w;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Bspfa</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">using</span> PII=std::pair&lt;<span class="type">int</span>,<span class="type">int</span>&gt;;</span><br><span class="line">    std::cin&gt;&gt;n&gt;&gt;m&gt;&gt;w;</span><br><span class="line">    std::vector&lt;std::vector&lt;PII&gt;&gt;<span class="built_in">G</span>(n<span class="number">+1</span>);</span><br><span class="line">    <span class="keyword">while</span>(m--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a,b,c;</span><br><span class="line">        std::cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        G[a].<span class="built_in">emplace_back</span>(b,c);</span><br><span class="line">        G[b].<span class="built_in">emplace_back</span>(a,c);</span><br><span class="line">    &#125;<span class="keyword">while</span>(w--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a,b,c;</span><br><span class="line">        std::cin&gt;&gt;a&gt;&gt;b&gt;&gt;c;</span><br><span class="line">        G[a].<span class="built_in">emplace_back</span>(b,-c);</span><br><span class="line">        <span class="comment">//G[b].emplace_back(a,c);</span></span><br><span class="line">    &#125;</span><br><span class="line">    std::vector&lt;<span class="type">int</span>&gt;<span class="built_in">dist</span>(n<span class="number">+1</span>,<span class="number">0</span>);</span><br><span class="line">    std::vector&lt;<span class="type">int</span>&gt;<span class="built_in">pre</span>(n<span class="number">+1</span>,<span class="number">0</span>);</span><br><span class="line">    std::queue&lt;<span class="type">int</span>&gt;q;</span><br><span class="line">    std::vector&lt;<span class="type">bool</span>&gt;<span class="built_in">st</span>(n<span class="number">+1</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)q.<span class="built_in">emplace</span>(i),st[i]=<span class="literal">true</span>;</span><br><span class="line">    <span class="type">int</span> idx=<span class="number">0</span>;<span class="comment">//计数器</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> dfs=[&amp;]()</span><br><span class="line">    &#123;</span><br><span class="line">        std::vector&lt;<span class="type">int</span>&gt;vec;</span><br><span class="line">        std::vector&lt;<span class="type">bool</span>&gt;<span class="built_in">instack</span>(n,<span class="literal">false</span>),<span class="built_in">vis</span>(n,<span class="literal">false</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>; i&lt;=n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(!vis[i])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j=i; j; j=pre[j])</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">if</span>(!vis[j])</span><br><span class="line">                    &#123;</span><br><span class="line">                        vis[j]=<span class="literal">true</span>;</span><br><span class="line">                        vec.<span class="built_in">push_back</span>(j);</span><br><span class="line">                        instack[j]=<span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">else</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span>(instack[j])<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j:vec)instack[j]=<span class="literal">false</span>;</span><br><span class="line">                vec.<span class="built_in">clear</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">while</span>(q.<span class="built_in">size</span>())&#123;</span><br><span class="line">        <span class="type">int</span> u=q.<span class="built_in">front</span>();</span><br><span class="line">        q.<span class="built_in">pop</span>();</span><br><span class="line">        st[u]=<span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> [v,w]:G[u])&#123;</span><br><span class="line">            <span class="keyword">if</span>(dist[u]+w&lt;dist[v])&#123;</span><br><span class="line">                pre[v]=u;</span><br><span class="line">                dist[v]=dist[u]+w;</span><br><span class="line">                <span class="keyword">if</span>(++idx==n)&#123;</span><br><span class="line">                    idx=<span class="number">0</span>;</span><br><span class="line">                    <span class="keyword">if</span>(<span class="built_in">dfs</span>())<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(!st[v])&#123;</span><br><span class="line">                    st[v]=<span class="literal">true</span>;</span><br><span class="line">                    q.<span class="built_in">emplace</span>(v);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span>(<span class="built_in">dfs</span>())<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">   <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> _;</span><br><span class="line">    std::ios_base::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    std::cin.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">    std::cin&gt;&gt;_;</span><br><span class="line">    <span class="keyword">while</span>(_--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Bspfa</span>())std::cout&lt;&lt;<span class="string">&quot;YES&quot;</span>&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">        <span class="keyword">else</span> std::cout&lt;&lt;<span class="string">&quot;NO&quot;</span>&lt;&lt;<span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="差分约束"><a href="#差分约束" class="headerlink" title="差分约束"></a>差分约束</h2><p>差分约束系统是一种特殊的数学结构，它由多个变量和一系列的不等式构成。这些不等式是一次的，并且涉及变量之间的差。</p>
+<img src="https://picx.zhimg.com/v2-3bba024ff266b82117e593fecf1c69ad_720w.png?source=d16d100b" alt="算法学习笔记(11): 差分约束" style="zoom:50%;" align='left'/>
+
+<img src=C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240525115335320.png alt="算法学习笔记(11): 差分约束" style="zoom:100%;" align='left'/>
+
+<p>差分约束就是对上面这样的一组多元不等式(每一个y都是已知量)</p>
+<p>形如$$x_1-x_2\leq c$$，可以通过化简得到 $$x_1\leq x_2+c$$。</p>
+<p>以下是对差分约束系统的重新阐述：</p>
+<ol>
+<li><strong>系统构成</strong>：一个差分约束系统包含 N 个变量 $和 M$个约束条件。每个约束条件形如 $$X_i - X_j \leq c_k$$，其中 $$c_k$$ 是一个常数，$$1 \leq i, j \leq N$$，$$1 \leq k \leq M$$。</li>
+<li><strong>求解问题</strong>：目标是找到一组特定的值 $$a_1, a_2, \ldots, a_N$$ 赋给变量 $$X_1, X_2, \ldots, X_N$$，使得所有约束条件都得到满足。</li>
+<li><strong>约束条件变换</strong>：每个约束 $$X_i - X_j \leq c_k$$可以变换为 $$X_i \leq X_j + c_k$$，这与单源最短路径问题中的三角形不等式 $$d[y] \leq d[x] + z$$非常相似。</li>
+<li><strong>图的构建</strong>：可以把每个变量 $$X_i$$ 看作图中的一个节点 i。对于每个约束 $$X_i - X_j \leq c_k$$，可以在节点 j 向节点 i 连一条长度为 $$c_k$$ 的有向边。</li>
+<li><strong>解的通用性</strong>：如果集合 $${a_1, a_2, \ldots, a_N}$$ 是一组解，那么对任意常数 A，集合 $${a_1 + A, \ldots, a_N + A}$$ 也是一组解，因为作差后 (A) 会被消掉。</li>
+<li><strong>求负数解</strong>：可以先求一组负数解，即假设 $$X_i \leq 0$$，然后引入一个额外的节点 0，令 $$X_0 &#x3D; 0$$，从而增加 N 个形如 $$X_i - X_0 \leq 0$$ 的约束条件，即从节点 0 向每个节点 (i) 连一条长度为 0 的有向边。</li>
+<li><strong>单源最短路</strong>：设置 (d[0] &#x3D; 0)，以节点 0 为起点计算单源最短路径。如果图中存在负环，则给定的差分约束系统无解。</li>
+<li><strong>解的确定</strong>：如果图中不存在负环，那么$$X_i &#x3D; d[i]$$ 就是差分约束系统的一组解。</li>
+<li><strong>不等式方向变换</strong>：在某些情况下，约束条件可能形如 $$X_i - X_j \geq c_k$$。这时，可以连接从 j 到 i 的长度为 $$c_k$$ 的有向边，并计算单源最长路径。如果图中存在正环，则系统无解。</li>
+<li><strong>约束条件转换</strong>：也可以将约束条件 $$X_i - X_j \geq c_k$$ 转换为 $$X_j - X_i \leq -c_k$$，然后按照单源最短路径问题进行计算。</li>
+</ol>
+<p>通过上述方法，我们可以将差分约束系统的问题转化为图论中的最短路径问题，从而利用图算法来寻找解决方案。</p>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><p>模板题</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240529021827059.png" alt="image-20240529021827059"></h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240529021906702.png" alt="image-20240529021906702"></p>
+<p><strong>输入</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3 3</span><br><span class="line">1 2 3</span><br><span class="line">2 3 -2</span><br><span class="line">1 3 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出</strong>：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5 3 5</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240529022150872.png" alt="image-20240529022150872"></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br></pre></td><td class="code"><pre><span class="line">作者：Pecco</span><br><span class="line">链接：https:<span class="comment">//zhuanlan.zhihu.com/p/104764488</span></span><br><span class="line">来源：知乎</span><br><span class="line">著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXN 5005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> MAXM 10005</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>, sgn = <span class="number">1</span>;</span><br><span class="line">    <span class="type">char</span> c = <span class="built_in">getchar</span>();</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(c))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">            sgn *= <span class="number">-1</span>;</span><br><span class="line">        c = <span class="built_in">getchar</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(c))</span><br><span class="line">    &#123;</span><br><span class="line">        ans = ans * <span class="number">10</span> + c - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        c = <span class="built_in">getchar</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans * sgn;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> cnt_edge, head[MAXN];</span><br><span class="line"><span class="keyword">struct</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> to, next, w;</span><br><span class="line">&#125; edges[MAXM];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add_edge</span><span class="params">(<span class="type">int</span> from, <span class="type">int</span> to, <span class="type">int</span> w)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    edges[++cnt_edge].next = head[from];</span><br><span class="line">    edges[cnt_edge].to = to;</span><br><span class="line">    edges[cnt_edge].w = w;</span><br><span class="line">    head[from] = cnt_edge;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">bool</span> inqueue[MAXN];</span><br><span class="line"><span class="type">int</span> cnt[MAXN], dis[MAXN];</span><br><span class="line">queue&lt;<span class="type">int</span>&gt; Q;</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">SPFA</span><span class="params">(<span class="type">int</span> s, <span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(dis, <span class="number">127</span>, <span class="built_in">sizeof</span>(dis));</span><br><span class="line"><span class="comment">//  memset(dis, -127, sizeof(dis));</span></span><br><span class="line">    dis[s] = <span class="number">0</span>;</span><br><span class="line">    Q.<span class="built_in">push</span>(s);</span><br><span class="line">    <span class="keyword">while</span> (!Q.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> p = Q.<span class="built_in">front</span>();</span><br><span class="line">        <span class="keyword">if</span> (cnt[p] &gt; n)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        Q.<span class="built_in">pop</span>();</span><br><span class="line">        inqueue[p] = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> eg = head[p]; eg != <span class="number">0</span>; eg = edges[eg].next)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> to = edges[eg].to;</span><br><span class="line">            <span class="keyword">if</span> (edges[eg].w + dis[p] &lt; dis[to])</span><br><span class="line"><span class="comment">//          if (edges[eg].w + dis[p] &gt; dis[to])</span></span><br><span class="line">            &#123;</span><br><span class="line">                dis[to] = edges[eg].w + dis[p];</span><br><span class="line">                <span class="keyword">if</span> (!inqueue[to])</span><br><span class="line">                &#123;</span><br><span class="line">                    Q.<span class="built_in">push</span>(to);</span><br><span class="line">                    inqueue[to] = <span class="literal">true</span>;</span><br><span class="line">                    cnt[to]++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = <span class="built_in">read</span>(), m = <span class="built_in">read</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> x = <span class="built_in">read</span>(), y = <span class="built_in">read</span>(), w = <span class="built_in">read</span>();</span><br><span class="line">        <span class="built_in">add_edge</span>(y, x, w);</span><br><span class="line"><span class="comment">//      add_edge(x, y, -w);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="built_in">add_edge</span>(<span class="number">0</span>, i, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">SPFA</span>(<span class="number">0</span>, n))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, dis[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">&quot;NO&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里用到了SPFA判负环，如果存在<strong>负环</strong>，最短路无解，则原不等式组也无解。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/07/13/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC12%E8%AE%B2/%E8%B4%9F%E7%8E%AF%E5%92%8C%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/" data-id="cm23pcg0t0003362z0tbcgx9a" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/07/13/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC17%E8%AE%B2/%E6%95%B0%E8%AE%BA1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/07/12/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC8%E8%AE%B2/%E5%8C%BA%E9%97%B4dp/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/11/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC2%E8%AE%B2/%E8%B4%AA%E5%BF%83%E8%A7%A3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC8%E8%AE%B2/%E8%83%8C%E5%8C%85%E6%A8%A1%E5%9E%8B/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC6%E8%AE%B2/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/08/18/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC7%E8%AE%B2/%E7%BA%BF%E6%AE%B5%E6%A0%91/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

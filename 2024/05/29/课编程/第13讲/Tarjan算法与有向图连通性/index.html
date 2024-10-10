@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Dfs生成树 在有向图中，深度优先搜索（DFS）生成的生成树（也称为DFS树）由四种类型的边组成，这些边在分析图的结构和属性时起着关键作用。以下是对这四种边的解释，以及它们与强连通分量之间的关系：  树边（Tree Edge）：  树边是连接搜索树中父子节点的边。 当DFS搜索到一个尚未访问的节点时，会形成一条树边。   反祖边（Back Edge）：  反祖边是指向祖先节点的边，通常表示为红色。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2024/05/29/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC13%E8%AE%B2/Tarjan%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%89%E5%90%91%E5%9B%BE%E8%BF%9E%E9%80%9A%E6%80%A7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Dfs生成树 在有向图中，深度优先搜索（DFS）生成的生成树（也称为DFS树）由四种类型的边组成，这些边在分析图的结构和属性时起着关键作用。以下是对这四种边的解释，以及它们与强连通分量之间的关系：  树边（Tree Edge）：  树边是连接搜索树中父子节点的边。 当DFS搜索到一个尚未访问的节点时，会形成一条树边。   反祖边（Back Edge）：  反祖边是指向祖先节点的边，通常表示为红色。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240529135120046.png">
+<meta property="article:published_time" content="2024-05-29T07:17:06.000Z">
+<meta property="article:modified_time" content="2024-05-29T07:17:06.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240529135120046.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-课编程/第13讲/Tarjan算法与有向图连通性" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/29/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC13%E8%AE%B2/Tarjan%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%89%E5%90%91%E5%9B%BE%E8%BF%9E%E9%80%9A%E6%80%A7/" class="article-date">
+  <time class="dt-published" datetime="2024-05-29T07:17:06.000Z" itemprop="datePublished">2024-05-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h3 id="Dfs生成树"><a href="#Dfs生成树" class="headerlink" title="Dfs生成树"></a>Dfs生成树</h3><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240529135120046.png" alt="image-20240529135120046"></p>
+<p>在有向图中，深度优先搜索（DFS）生成的生成树（也称为DFS树）由四种类型的边组成，这些边在分析图的结构和属性时起着关键作用。以下是对这四种边的解释，以及它们与强连通分量之间的关系：</p>
+<ol>
+<li><p><strong>树边（Tree Edge）</strong>：</p>
+<ul>
+<li>树边是连接搜索树中父子节点的边。</li>
+<li>当DFS搜索到一个尚未访问的节点时，会形成一条树边。</li>
+</ul>
+</li>
+<li><p><strong>反祖边（Back Edge）</strong>：</p>
+<ul>
+<li>反祖边是指向祖先节点的边，通常表示为红色。</li>
+<li>这种边的存在表明图中存在环。</li>
+</ul>
+</li>
+<li><p><strong>横叉边（Cross Edge）</strong>：</p>
+<ul>
+<li>横叉边连接两个已经访问过的节点，但这些节点不是彼此的祖先或后代。</li>
+<li>这种边通常表示为蓝色。</li>
+</ul>
+</li>
+<li><p><strong>前向边（Forward Edge）</strong>：</p>
+<ul>
+<li>前向边是连接搜索树中父子节点后代的边。</li>
+<li>当DFS搜索到一个已经访问过的节点，但这个节点不是当前节点的后代时，会形成前向边。</li>
+</ul>
+</li>
+</ol>
+<p>现在，让我们讨论DFS生成树与强连通分量之间的关系：</p>
+<ul>
+<li>在有向图中，强连通分量（SCC）是指图中的一个子图，在这个子图中，任意两个节点都相互可达。</li>
+<li>当DFS搜索到强连通分量的第一个节点时，这个节点被称为该强连通分量的根。</li>
+<li>强连通分量中的所有其他节点必然位于以该根节点为起点的DFS生成树的子树中。</li>
+</ul>
+<p><strong>反证法证明</strong>：</p>
+<ul>
+<li>假设存在一个节点v，它属于某个强连通分量，但不在以根节点u为起点的子树中。</li>
+<li>这意味着从u到v的路径中必须存在一条边使得路径离开这个子树。</li>
+<li>这样的边只能是横叉边或反祖边，因为它们连接已经访问过的节点。</li>
+<li>但是，这与u是强连通分量中第一个访问的节点的事实相矛盾，因为横叉边和反祖边指向的节点在u之前已经被访问过。</li>
+<li>因此，我们的假设是错误的，强连通分量中的所有节点确实都位于以根节点为起点的子树中。</li>
+</ul>
+<p>通过这个分析，我们可以更好地理解有向图中的强连通分量以及它们如何通过DFS生成树来识别和组织。</p>
+<h3 id="Tarjan算法概述"><a href="#Tarjan算法概述" class="headerlink" title="Tarjan算法概述"></a>Tarjan算法概述</h3><p>Tarjan算法可以在O(n+m)的时间复杂度内找出有向图中的所有强连通分量。强连通分量是指图中的极大强连通子图，即图中的每个顶点都与其它任意顶点之间存在有向边。</p>
+<h3 id="Tarjan算法的基本概念"><a href="#Tarjan算法的基本概念" class="headerlink" title="Tarjan算法的基本概念"></a>Tarjan算法的基本概念</h3><ul>
+<li><strong>搜索树</strong>：在深度优先搜索（DFS）过程中，访问过的节点和边构成搜索树。</li>
+<li><strong>边的分类</strong>：<ol>
+<li><strong>树边</strong>：访问节点时走过的边。</li>
+<li><strong>返祖边</strong>：指向祖先节点的边。</li>
+<li><strong>横叉边</strong>：右子树指向左子树的边。</li>
+<li><strong>前向边</strong>：指向子树内部节点的边。</li>
+</ol>
+</li>
+</ul>
+<h3 id="Tarjan算法的数据结构"><a href="#Tarjan算法的数据结构" class="headerlink" title="Tarjan算法的数据结构"></a>Tarjan算法的数据结构</h3><ol>
+<li>**时间戳<code>dfn[x]</code>**：节点x第一次被访问的顺序。</li>
+<li>**追溯值<code>low[x]</code>**：从节点x出发，所能访问到的最早时间戳。</li>
+<li>**栈<code>stack[]</code>**：存储尚未处理完的强连通分量中的节点。</li>
+</ol>
+<h3 id="Tarjan算法流程"><a href="#Tarjan算法流程" class="headerlink" title="Tarjan算法流程"></a>Tarjan算法流程</h3><ol>
+<li>对每个未访问的节点u执行以下操作：<ul>
+<li>标记时间戳<code>dfn[u]</code>，并将u入栈。</li>
+<li>枚举u的所有邻点v：<ol>
+<li>如果邻点v未被标记，递归地对v进行深度优先搜索，并更新<code>low[u]</code>。</li>
+<li>如果邻点v已被标记且在栈内，更新<code>low[u]</code>。</li>
+<li>如果邻点v已被标记且不在栈内，不需要执行任何操作。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>当完成对节点u的访问时，如果u是强连通分量的根（<code>dfn[u] == low[u]</code>），则记录SCC。</li>
+</ol>
+<h3 id="Tarjan算法与拓扑排序的关系"><a href="#Tarjan算法与拓扑排序的关系" class="headerlink" title="Tarjan算法与拓扑排序的关系"></a>Tarjan算法与拓扑排序的关系</h3><p>Tarjan算法可以用来得到缩点后的有向无环图（DAG）的拓扑排序。由于强连通分量的根的编号是升序存储的，因此按照序号倒序排列强连通分量，可以得到缩点后DAG的拓扑序。</p>
+<h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">tarjan</span><span class="params">(<span class="type">int</span> u)</span></span>&#123;</span><br><span class="line">    dfn[u] = low[u] = ++tot;</span><br><span class="line">    stk[++top] = u,instk[u] = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = h[u]; i != <span class="number">-1</span>; i = ne[i])&#123;</span><br><span class="line">        <span class="type">int</span> v = e[i];</span><br><span class="line">        <span class="keyword">if</span>(!dfn[v])&#123;</span><br><span class="line">            <span class="built_in">tarjan</span>(v);</span><br><span class="line">            low[u] = <span class="built_in">min</span>(low[u],low[v]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(instk[v])low[u] = <span class="built_in">min</span>(low[u],dfn[v]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(dfn[u] == low[u])&#123;</span><br><span class="line">        <span class="type">int</span> v;++cnt;</span><br><span class="line">        <span class="keyword">do</span>&#123;</span><br><span class="line">            v = stk[top--],instk[v] = <span class="literal">false</span>;</span><br><span class="line">            scc[v] = cnt;</span><br><span class="line">            ++siz[cnt];</span><br><span class="line">        &#125;<span class="keyword">while</span>(v != u);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Tarjan算法的应用"><a href="#Tarjan算法的应用" class="headerlink" title="Tarjan算法的应用"></a>Tarjan算法的应用</h3><ul>
+<li><strong>SCC缩点</strong>：将每个强连通分量视为一个节点，构建新的图，这在处理某些图论问题时非常有用。</li>
+<li><strong>割点（Articulation Point）</strong>：在无向图中，如果删除某个点后连通块数量增加，则该点是割点。Tarjan算法可以用来判定割点。</li>
+<li><strong>割边（Bridge）</strong>：在无向图中，连接两个割点且不属于任何环的边是割边。Tarjan算法有助于识别割边。</li>
+</ul>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Tarjan算法是一种强大的图论工具，它不仅可以用于找出有向图中的所有强连通分量，还可以用于拓扑排序、SCC缩点、割点和割边的判定等。通过理解和应用Tarjan算法，可以解决许多与图的连通性相关的问题。	</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/29/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC13%E8%AE%B2/Tarjan%E7%AE%97%E6%B3%95%E4%B8%8E%E6%9C%89%E5%90%91%E5%9B%BE%E8%BF%9E%E9%80%9A%E6%80%A7/" data-id="cm23pcg0t0005362zgtylbjzy" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/29/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC13%E8%AE%B2/%7FTarjan%E7%AE%97%E6%B3%95%E4%B8%8E%E6%97%A0%E5%90%91%E5%9B%BE%E8%BF%9E%E9%80%9A%E6%80%A7/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/29/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC13%E8%AE%B2/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title"></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/10/11/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC2%E8%AE%B2/%E8%B4%AA%E5%BF%83%E8%A7%A3/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC8%E8%AE%B2/%E8%83%8C%E5%8C%85%E6%A8%A1%E5%9E%8B/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/26/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC6%E8%AE%B2/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2024/08/18/%E8%AF%BE%E7%BC%96%E7%A8%8B/%E7%AC%AC7%E8%AE%B2/%E7%BA%BF%E6%AE%B5%E6%A0%91/">(no title)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
